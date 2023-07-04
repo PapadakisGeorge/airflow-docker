@@ -1,0 +1,23 @@
+[2023-07-04T14:19:07.536+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_dag.get_data_from_mysql manual__2023-07-04T14:19:06.826905+00:00 [queued]>
+[2023-07-04T14:19:07.552+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_dag.get_data_from_mysql manual__2023-07-04T14:19:06.826905+00:00 [queued]>
+[2023-07-04T14:19:07.554+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-04T14:19:07.556+0000] {taskinstance.py:1283} INFO - Starting attempt 1 of 1
+[2023-07-04T14:19:07.558+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-04T14:19:07.580+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): get_data_from_mysql> on 2023-07-04 14:19:06.826905+00:00
+[2023-07-04T14:19:07.586+0000] {standard_task_runner.py:55} INFO - Started process 200 to run task
+[2023-07-04T14:19:07.594+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'test_dag', 'get_data_from_mysql', 'manual__2023-07-04T14:19:06.826905+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/test_dag.py', '--cfg-path', '/tmp/tmphop19b23']
+[2023-07-04T14:19:07.598+0000] {standard_task_runner.py:83} INFO - Job 3: Subtask get_data_from_mysql
+[2023-07-04T14:19:07.698+0000] {task_command.py:388} INFO - Running <TaskInstance: test_dag.get_data_from_mysql manual__2023-07-04T14:19:06.826905+00:00 [running]> on host 7b0c4fed595d
+[2023-07-04T14:19:07.802+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=me
+AIRFLOW_CTX_DAG_ID=test_dag
+AIRFLOW_CTX_TASK_ID=get_data_from_mysql
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-04T14:19:06.826905+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-07-04T14:19:06.826905+00:00
+[2023-07-04T14:19:08.009+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-07-04T14:19:08.021+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=test_dag, task_id=get_data_from_mysql, execution_date=20230704T141906, start_date=20230704T141907, end_date=20230704T141908
+[2023-07-04T14:19:08.048+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-07-04T14:19:08.077+0000] {taskinstance.py:2585} INFO - 1 downstream tasks scheduled from follow-on schedule check

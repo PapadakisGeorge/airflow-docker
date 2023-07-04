@@ -1,0 +1,38 @@
+services:
+  source-db:
+    image: mysql:5.7
+    container_name: source-db
+    environment:
+      MYSQL_DATABASE: source_db
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
+    volumes:
+      - ./source_data:/var/lib/mysql
+      - ./init_dbs/source_scripts/:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 10
+
+  op-db:
+    image: mysql:5.7
+    container_name: op-db
+    environment:
+      MYSQL_DATABASE: op_events_db
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - 3307:3306
+    volumes:
+      - ./opdb_data:/var/lib/mysql
+      - ./init_dbs/opdb_scripts/:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 10
